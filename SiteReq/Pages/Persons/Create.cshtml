@@ -1,0 +1,49 @@
+﻿@page
+@model SiteReq.Pages.Persons.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Person</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Person.NameProject" class="control-label"></label>
+                <input asp-for="Person.NameProject" class="form-control" />
+                <span asp-validation-for="Person.NameProject" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.Author" class="control-label"></label>
+                <input asp-for="Person.Author" class="form-control" />
+                <span asp-validation-for="Person.Author" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.Stargazers" class="control-label"></label>
+                <input asp-for="Person.Stargazers" class="form-control" />
+                <span asp-validation-for="Person.Stargazers" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.Watchers" class="control-label"></label>
+                <input asp-for="Person.Watchers" class="form-control" />
+                <span asp-validation-for="Person.Watchers" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

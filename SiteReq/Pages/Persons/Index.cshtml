@@ -1,0 +1,60 @@
+﻿@page 
+@model SiteReq.Pages.Persons.IndexModel
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<p>
+    <a asp-page="Create">Добавить Запись</a>
+</p>
+
+<form>
+    <p>
+        Название: <input type="text" asp-for="SearchString" />
+        <input class="btn" type="submit" value="Найти" />
+    </p>
+</form>
+
+
+
+<div style="display: inline-flex; justify-content: space-around">
+    @foreach (var item in Model.Person)
+    {
+        <div class="card ml-2 mr-2" style="max-width: 18rem;">
+
+            <span>@Html.DisplayNameFor(model => model.Person[0].NameProject)</span>
+            <h1>@Html.DisplayFor(modelItem => item.NameProject)</h1>
+
+            <span>
+                @Html.DisplayNameFor(model => model.Person[0].Author)
+            </span>
+            <h2> @Html.DisplayFor(modelItem => item.Author)</h2>
+
+            <span>
+                @Html.DisplayNameFor(model => model.Person[0].Stargazers)
+            </span>
+            <h3>@Html.DisplayFor(modelItem => item.Stargazers)</h3>
+
+            <span>
+                @Html.DisplayNameFor(model => model.Person[0].Watchers)
+            </span>
+            <h4>@Html.DisplayFor(modelItem => item.Watchers)</h4>
+
+            <div>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </div>
+        </div>
+    }
+</div>
+
+
+          
+                
+   
+
+
